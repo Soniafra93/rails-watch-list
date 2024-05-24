@@ -1,0 +1,20 @@
+<div class='container mt-3'>
+  <h1><%= @list.name %></h1>
+  <% @list.movies.each do |movie| %>
+    <%= bookmark = Bookmark.find(list: list, movie: movie) %>
+    <%= movie.title %>
+    <%= movie.overview %>
+    <%= movie.rating %>
+    <%= image_tag movie.post_url %>
+  <% end %>
+
+
+  <div>
+  <h2>Create a new Bookmark for this list</h2>
+    <%= simple_form_for([@list, @bookmark]) do |f| %>
+      <%= f.association :movie, collection: Movie.all, prompt: "Select a movie" %>
+      <%= f.input :comment %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class='container mt-3'>
+  <h1>See all the movie Lists!!</h1>
+
+  <ul>
+    <%= @lists.each do |list| %>
+      <li><%= list.name %></li>
+    <% end %>
+  </ul>
+</div>
