@@ -2,8 +2,8 @@
   <h1>See all the movie Lists!!</h1>
 
   <ul>
-    <%= @lists.each do |list| %>
-      <li><%= list.name %></li>
+    <% @lists.each do |list| %>
+      <li><%= link_to list.name, list_path(list) %></li>
     <% end %>
   </ul>
 </div>

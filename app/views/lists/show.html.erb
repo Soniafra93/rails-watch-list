@@ -1,11 +1,11 @@
 <div class='container mt-3'>
   <h1><%= @list.name %></h1>
   <% @list.movies.each do |movie| %>
-    <%= bookmark = Bookmark.find(list: list, movie: movie) %>
+    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
     <%= movie.title %>
     <%= movie.overview %>
     <%= movie.rating %>
-    <%= image_tag movie.post_url %>
+    <%= image_tag movie.poster_url %>
   <% end %>
 
 
@@ -17,4 +17,6 @@
       <%= f.submit %>
     <% end %>
   </div>
+
+  <%= link_to "Go back to the lists", lists_path %>
 </div>
